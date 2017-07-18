@@ -844,6 +844,7 @@ class PDFViewer {
   }
 
   forceRendering(currentlyVisiblePages) {
+    debugger;
     let visiblePages = currentlyVisiblePages || this._getVisiblePages();
     let pageView = this.renderingQueue.getHighestPriority(visiblePages,
                                                           this._pages,

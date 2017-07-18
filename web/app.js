@@ -1633,6 +1633,7 @@ if (typeof PDFJSDev === 'undefined' || PDFJSDev.test('GENERIC')) {
 }
 
 function webViewerPageRendered(evt) {
+  console.log('rendered');
   let pageNumber = evt.pageNumber;
   let pageIndex = pageNumber - 1;
   let pageView = PDFViewerApplication.pdfViewer.getPageView(pageIndex);
