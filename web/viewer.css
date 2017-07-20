@@ -1584,6 +1584,15 @@ html[dir='rtl'] #documentPropertiesOverlay .row > * {
   z-index: 50000; /* should be higher than anything else in PDF.js! */
 }
 
+mark.additor-highlighted {
+  background-color: rgba(117, 82, 246, .6);
+  color: transparent;
+}
+
+mark.additor-highlighted.additor-highlighted-hover {
+  background-color: rgb(117, 82, 246) !important;
+}
+
 @page {
   margin: 0;
 }

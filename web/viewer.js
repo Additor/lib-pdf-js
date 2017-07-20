@@ -17,7 +17,6 @@
 'use strict';
 
 let DEFAULT_URL = 'compressed.tracemonkey-pldi-09.pdf';
-let defaultPages = [5, 10];
 
 if (typeof PDFJSDev !== 'undefined' && PDFJSDev.test('CHROME')) {
   (function rewriteUrlClosure() {

@@ -321,7 +321,7 @@ function getVisibleElements(scrollEl, views, sortByVisibility = false) {
   }
 
   let visible = [], view, element;
-  let mustVisiblePages = defaultPages; // global defaultPages
+  let mustVisiblePages = window.defaultPages || []; // global defaultPages
   let currentHeight, viewHeight, hiddenHeight, percentHeight;
   let currentWidth, viewWidth;
   let firstVisibleElementInd = views.length === 0 ? 0 :
@@ -333,15 +333,14 @@ function getVisibleElements(scrollEl, views, sortByVisibility = false) {
     currentHeight = element.offsetTop + element.clientTop;
     viewHeight = element.clientHeight;
 
-    if (!mustVisiblePages.includes(view.id)) {
-      if (currentHeight > bottom) {
-        continue;
-      }
-      currentWidth = element.offsetLeft + element.clientLeft;
-      viewWidth = element.clientWidth;
-      if (currentWidth + viewWidth < left || currentWidth > right) {
-        continue;
-      }
+    if (currentHeight > bottom) {
+      break;
+    }
+
+    currentWidth = element.offsetLeft + element.clientLeft;
+    viewWidth = element.clientWidth;
+    if (currentWidth + viewWidth < left || currentWidth > right) {
+      continue;
     }
 
     hiddenHeight = Math.max(0, top - currentHeight) +
@@ -356,7 +355,24 @@ function getVisibleElements(scrollEl, views, sortByVisibility = false) {
       percent: percentHeight,
     });
   }
-  debugger;
+  mustVisiblePages.forEach((visibleInd) => {
+    view = views[visibleInd - 1];
+    element = view.div;
+    currentHeight = element.offsetTop + element.clientTop;
+    viewHeight = element.clientHeight;
+
+    hiddenHeight = Math.max(0, top - currentHeight) +
+      Math.max(0, currentHeight + viewHeight - bottom);
+    percentHeight = ((viewHeight - hiddenHeight) * 100 / viewHeight) | 0;
+
+    visible.push({
+      id: view.id,
+      x: currentWidth,
+      y: currentHeight,
+      view,
+      percent: percentHeight,
+    });
+  });
 
   let first = visible[0];
   let last = visible[visible.length - 1];

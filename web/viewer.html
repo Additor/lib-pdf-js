@@ -39,9 +39,9 @@ See https://github.com/adobe-type-tools/cmap-resources
 <!--#include viewer-snippet-chrome-extension.html-->
 <!--#endif-->
 
-    <link rel="stylesheet" href="viewer.css">
+    <link rel="stylesheet" href="assets/lib/pdfjs-dist/web/viewer.css">
 <!--#if !PRODUCTION-->
-    <link rel="resource" type="application/l10n" href="locale/locale.properties">
+    <link rel="resource" type="application/l10n" href="assets/lib/pdfjs-dist/web/locale/locale.properties">
 <!--#endif-->
 
 <!--#if !PRODUCTION-->
@@ -216,7 +216,7 @@ See https://github.com/adobe-type-tools/cmap-resources
                 <button id="download" class="toolbarButton download hiddenMediumView" title="Download" tabindex="34" data-l10n-id="download">
                   <span data-l10n-id="download_label">Download</span>
                 </button>
-                <a href="#" id="viewBookmark" class="toolbarButton bookmark hiddenSmallView" title="Current view (copy or open in new window)" tabindex="35" data-l10n-id="bookmark">
+                <a href="#" id="viewBookmark" class="toolbarButton bookmark hiddenSmallView" title="Current view (copy or open in new window)" tabindex="35" data-l10n-id="bookmark" style="display: none">
                   <span data-l10n-id="bookmark_label">Current View</span>
                 </a>
 

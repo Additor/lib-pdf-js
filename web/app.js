@@ -157,7 +157,7 @@ let PDFViewerApplication = {
   initialize(appConfig) {
     this.preferences = this.externalServices.createPreferences();
 
-    configure(PDFJS);
+    // configure(PDFJS);
     this.appConfig = appConfig;
 
     return this._readPreferences().then(() => {
@@ -673,7 +673,16 @@ let PDFViewerApplication = {
       }
     }
 
-    let loadingTask = getDocument(parameters);
+    function _base64ToUint8Array(base64) {
+      const raw = window.atob(base64);
+      const uint8Array = new Uint8Array(raw.length);
+      for(let i = 0; i < raw.length; i++) {
+        uint8Array[i] = raw.charCodeAt(i);
+      }
+      return uint8Array;
+    }
+
+    let loadingTask = getDocument(_base64ToUint8Array(window.__pdf));
     this.pdfLoadingTask = loadingTask;
 
     loadingTask.onPassword = (updateCallback, reason) => {
@@ -1633,7 +1642,6 @@ if (typeof PDFJSDev === 'undefined' || PDFJSDev.test('GENERIC')) {
 }
 
 function webViewerPageRendered(evt) {
-  console.log('rendered');
   let pageNumber = evt.pageNumber;
   let pageIndex = pageNumber - 1;
   let pageView = PDFViewerApplication.pdfViewer.getPageView(pageIndex);
