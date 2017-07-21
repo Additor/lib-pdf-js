@@ -79,8 +79,8 @@ class PDFOutlineViewer {
     }
     let destination = item.dest;
 
-    // element.href = this.linkService.getDestinationHash(destination); // FIXME: extension on
-    element.style.cursor = 'pointer'; // FIXME: extension off
+    element.href = this.linkService.getDestinationHash(destination); // FIXME: extension on
+    // element.style.cursor = 'pointer'; // FIXME: extension off
     element.onclick = () => {
       if (destination) {
         this.linkService.navigateTo(destination);

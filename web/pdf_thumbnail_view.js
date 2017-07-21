@@ -114,12 +114,12 @@ class PDFThumbnailView {
     this.l10n = l10n;
 
     let anchor = document.createElement('a');
-    // anchor.href = linkService.getAnchorUrl('#page=' + id); // FIXME: 크롬 익스텐션에서는 주석 풀기
+    anchor.href = linkService.getAnchorUrl('#page=' + id); // FIXME: 크롬 익스텐션에서는 주석 풀기
     this.l10n.get('thumb_page_title', { page: id, }, 'Page {{page}}').
         then((msg) => {
       anchor.title = msg;
     });
-    anchor.style.cursor = 'pointer'; // FIXME: 익스텐션에서는 주석 걸기
+    // anchor.style.cursor = 'pointer'; // FIXME: 익스텐션에서는 주석 걸기
     anchor.onclick = function() {
       linkService.page = id;
       return false;

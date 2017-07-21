@@ -673,16 +673,7 @@ let PDFViewerApplication = {
       }
     }
 
-    function _base64ToUint8Array(base64) {
-      const raw = window.atob(base64);
-      const uint8Array = new Uint8Array(raw.length);
-      for(let i = 0; i < raw.length; i++) {
-        uint8Array[i] = raw.charCodeAt(i);
-      }
-      return uint8Array;
-    }
-
-    let loadingTask = getDocument(_base64ToUint8Array(window.__pdf));
+    let loadingTask = getDocument(window.location.href.split('#')[0]);
     this.pdfLoadingTask = loadingTask;
 
     loadingTask.onPassword = (updateCallback, reason) => {
