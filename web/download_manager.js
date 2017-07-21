@@ -22,6 +22,7 @@ if (typeof PDFJSDev !== 'undefined' && !PDFJSDev.test('CHROME || GENERIC')) {
 
 function download(blobUrl, filename) {
   var a = document.createElement('a');
+  debugger;
   if (a.click) {
     // Use a.click() if available. Otherwise, Chrome might show
     // "Unsafe JavaScript attempt to initiate a navigation change
