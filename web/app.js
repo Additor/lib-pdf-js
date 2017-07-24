@@ -143,7 +143,7 @@ let PDFViewerApplication = {
     defaultZoomValue: '',
     disablePageLabels: false,
     renderer: 'canvas',
-    enhanceTextSelection: false,
+    enhanceTextSelection: true,
     renderInteractiveForms: false,
     enablePrintAutoRotate: false,
   },
