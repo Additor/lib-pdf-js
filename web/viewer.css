@@ -1158,6 +1158,10 @@ html[dir='rtl'] .verticalToolbarSeparator {
   padding: 7px;
 }
 
+a {
+  cursor: pointer;
+}
+
 a:focus > .thumbnail > .thumbnailSelectionRing > .thumbnailImage,
 .thumbnail:hover > .thumbnailSelectionRing > .thumbnailImage {
   opacity: .9;
@@ -1586,6 +1590,7 @@ html[dir='rtl'] #documentPropertiesOverlay .row > * {
 
 mark.additor-highlighted {
   background-color: rgba(117, 82, 246, .6);
+  padding: 0;
   color: transparent;
 }
 

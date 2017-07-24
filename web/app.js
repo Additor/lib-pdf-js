@@ -1704,6 +1704,10 @@ function webViewerTextLayerRendered(evt) {
     });
     PDFViewerApplication.fallback();
   }
+  const elements = document.getElementsByTagName('A');
+  for (let i = 0; i < elements.length; i++) {
+    elements[i].removeAttribute('href');
+  }
 }
 
 function webViewerPageMode(evt) {
