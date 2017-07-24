@@ -1514,8 +1514,8 @@ var WorkerTransport = (function WorkerTransportClosure() {
     this.commonObjs = new PDFObjects();
     this.fontLoader = new FontLoader(loadingTask.docId);
     this.CMapReaderFactory = new CMapReaderFactory({
-      baseUrl: getDefaultSetting('cMapUrl'),
-      isCompressed: getDefaultSetting('cMapPacked'),
+      baseUrl: `${location.origin}/assets/lib/pdfjs-dist/web/cmaps/`,
+      isCompressed: true,
     });
 
     this.destroyed = false;
